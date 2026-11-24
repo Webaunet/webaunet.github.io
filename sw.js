@@ -1,4 +1,4 @@
-const C='recettes-v2';
+const C='recettes-v3';
 const CORE=['./','index.html','app.css?v=2','app.js?v=2','nutrition.js?v=2','import.js?v=2','share.js?v=2','manifest.json','ic192.png','ic512.png','ic512m.png'];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(C).then(c=>c.addAll(CORE)).then(()=>self.skipWaiting()))});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!==C&&x!=='recettes-lib').map(x=>caches.delete(x)))).then(()=>self.clients.claim()))});
